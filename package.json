@@ -1,0 +1,9 @@
+{
+  "name": "istwitterapifree.com",
+  "private": false,
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
+  "license": "MIT",
+  "type": "module"
+}
