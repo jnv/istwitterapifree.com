@@ -8,9 +8,9 @@
 
   <entry>
     <title>${statusShort}</title>
-    <id>https://istwitterapifree.com/</id>
+    <id>https://istwitterapifree.com/#${generatedDatetime}</id>
     <updated>${generatedDatetime}</updated>
-    <link href="https://istwitterapifree.com/"/>
+    <link href="https://istwitterapifree.com/?d=${generatedDatetime}"/>
     <summary>${statusLong}</summary>
   </entry>
 
