@@ -4,6 +4,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
+  schedule:
+    - cron: 42 1 * * *
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,12 +34,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm'
+          cache: "npm"
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - run: npm ci
       - run: npm run build
         continue-on-error: true
+        with: # Set the secret as an input
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
