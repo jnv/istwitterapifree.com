@@ -10,22 +10,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main>
-      <header>
-        <h1>Is Twitter API Free?</h1>
-      </header>
-      <p class="status">${status}</p>
-      <p class="date">
-        As of <time datetime="${generatedDatetime}">${generatedHuman}</time>
-      </p>
+    <div class="container">
+      <main class="main">
+        <header>
+          <h1>Is Twitter API Free?</h1>
+        </header>
+        <p class="status">${status}</p>
+        <p class="date">
+          As of <time datetime="${generatedDatetime}">${generatedHuman}</time>
+        </p>
 
-      <p>
-        <a href="https://twitter.com/TwitterDev/status/1621026986784337922"
-          >But not for long</a
-        >
-      </p>
+        <p>
+          <a href="https://twitter.com/TwitterDev/status/1621026986784337922"
+            >But not for long</a
+          >
+        </p>
+      </main>
 
-      <footer>
+      <footer class="footer">
         <ul class="links">
           <!-- <li><a href="/feed.xml">RSS feed</a></li> -->
           <!-- <li><a href="">Follow on Mastodon</a></li> -->
@@ -34,7 +36,7 @@
           </li>
         </ul>
       </footer>
-    </main>
+    </div>
     <script
       data-goatcounter="https://istwitterapifree.goatcounter.com/count"
       async
