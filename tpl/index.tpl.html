@@ -34,6 +34,12 @@
       .status {
         font-weight: bold;
       }
+      .response {
+        text-align: left;
+        margin: 0 auto;
+        max-width: 98vw;
+        overflow-y: scroll;
+      }
       .links {
         list-style: none;
         padding-top: 3rem;
@@ -52,9 +58,12 @@
       <p class="date">
         As of <time datetime="${generatedDatetime}">${generatedHuman}</time>
       </p>
-      <!--
-        ${response}
-      -->
+
+      <details>
+        <summary>API response</summary>
+        <pre class="response"><code>${response}</code></pre>
+      </details>
+
       <footer>
         <ul class="links">
           <li>

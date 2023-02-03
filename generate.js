@@ -9,12 +9,23 @@ const OUT_DIR = new URL("./public/", import.meta.url).toString();
 const INDEX_TEMPLATE = new URL("./index.tpl.html", TPL_DIR);
 const INDEX_OUT = new URL("./index.html", OUT_DIR);
 
+// https://stackoverflow.com/a/30970751/240963
+function escapeHTML(s) {
+  const lookup = {
+    "&": "&amp;",
+    '"': "&quot;",
+    "'": "&apos;",
+    "<": "&lt;",
+    ">": "&gt;",
+  };
+  return s.replace(/[&"'<>]/g, (c) => lookup[c]);
+}
 async function generateFile(templateFile, outputFile, values = {}) {
   const template = await readFile(templateFile, { encoding: "utf-8" });
   let contents = template;
   for (const [key, value] of Object.entries(values)) {
     const re = new RegExp("\\${" + key + "}", "g");
-    contents = contents.replace(re, value);
+    contents = contents.replace(re, escapeHTML("" + value));
   }
   await writeFile(outputFile, contents, { encoding: "utf-8" });
 }
