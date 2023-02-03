@@ -6,9 +6,6 @@ import process from "node:process";
 const TPL_DIR = new URL("./tpl/", import.meta.url).toString();
 const OUT_DIR = new URL("./public/", import.meta.url).toString();
 
-const INDEX_TEMPLATE = new URL("./index.tpl.html", TPL_DIR);
-const INDEX_OUT = new URL("./index.html", OUT_DIR);
-
 // https://stackoverflow.com/a/30970751/240963
 function escapeHTML(s) {
   const lookup = {
@@ -20,14 +17,17 @@ function escapeHTML(s) {
   };
   return s.replace(/[&"'<>]/g, (c) => lookup[c]);
 }
-async function generateFile(templateFile, outputFile, values = {}) {
-  const template = await readFile(templateFile, { encoding: "utf-8" });
+async function generateFile(templateFilename, outputFilename, values = {}) {
+  const templatePath = new URL(templateFilename, TPL_DIR);
+  const outputPath = new URL(outputFilename, OUT_DIR);
+
+  const template = await readFile(templatePath, { encoding: "utf-8" });
   let contents = template;
   for (const [key, value] of Object.entries(values)) {
     const re = new RegExp("\\${" + key + "}", "g");
     contents = contents.replace(re, escapeHTML("" + value));
   }
-  await writeFile(outputFile, contents, { encoding: "utf-8" });
+  await writeFile(outputPath, contents, { encoding: "utf-8" });
 }
 
 async function getApiResponse() {
@@ -62,7 +62,10 @@ async function getTemplateData() {
   const now = new Date();
   const tplData = {
     ok,
-    status: ok ? "Yes" : "Probably yes", // FIXME after Feb 8
+    statusShort: ok
+      ? config.status.positive.short
+      : config.status.negative.short,
+    statusLong: ok ? config.status.positive.long : config.status.negative.long,
     generatedHuman: now.toLocaleString("en-GB", {
       timeZone: "UTC",
       dateStyle: "long",
@@ -76,7 +79,9 @@ async function getTemplateData() {
 
 // console.log({ TPL_DIR, OUT_DIR, INDEX_OUT, INDEX_TEMPLATE });
 const tplData = await getTemplateData();
-await generateFile(INDEX_TEMPLATE, INDEX_OUT, tplData);
+await generateFile("index.tpl.html", "index.html", tplData);
+await generateFile("feed.tpl.xml", "feed.xml", tplData);
+
 console.error(tplData);
 if (!tplData.ok) {
   process.exitCode = 1;

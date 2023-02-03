@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Is Twitter API Free?</title>
+  <updated>${generatedDatetime}</updated>
+  <id>https://istwitterapifree.com/</id>
+  <link rel="self" href="https://istwitterapifree.com/feed.xml"/>
+  <link href="https://istwitterapifree.com/"/>
+
+  <entry>
+    <title>${statusShort}</title>
+    <id>https://istwitterapifree.com/</id>
+    <updated>${generatedDatetime}</updated>
+    <link href="https://istwitterapifree.com/"/>
+    <summary>${statusLong}</summary>
+  </entry>
+
+</feed>

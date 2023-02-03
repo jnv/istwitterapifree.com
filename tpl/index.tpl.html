@@ -4,10 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Is Twitter API Free?</title>
-    <meta name="description" content="${status}" />
+    <meta
+      name="description"
+      content="The premium resource for checking whether the Twitter API is still free."
+    />
     <meta property="og:image" content="/og.png" />
     <link rel="canonical" href="https://istwitterapifree.com/" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="alternate"
+      href="feed.xml"
+      type="application/atom+xml"
+      title="RSS feed"
+    />
   </head>
   <body>
     <div class="container">
@@ -15,7 +24,7 @@
         <header>
           <h1>Is Twitter API Free?</h1>
         </header>
-        <p class="status">${status}</p>
+        <p class="status">${statusLong}</p>
         <p class="date">
           As of <time datetime="${generatedDatetime}">${generatedHuman}</time>
         </p>
@@ -29,7 +38,7 @@
 
       <footer class="footer">
         <ul class="links">
-          <!-- <li><a href="/feed.xml">RSS feed</a></li> -->
+          <li><a href="/feed.xml">RSS feed</a></li>
           <!-- <li><a href="">Follow on Mastodon</a></li> -->
           <li>
             <a href="https://github.com/jnv/istwitterapifree.com">Source</a>
