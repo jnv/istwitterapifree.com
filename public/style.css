@@ -1,0 +1,42 @@
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 90vh;
+  place-items: center;
+}
+a {
+  color: #1d9bf0;
+}
+main {
+  text-align: center;
+}
+h1,
+.status {
+  font-size: 3rem;
+}
+h1 {
+  font-weight: normal;
+}
+.status {
+  font-weight: bold;
+}
+.response {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 98vw;
+  overflow-y: scroll;
+}
+.links {
+  padding: 0;
+  list-style: none;
+  padding-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

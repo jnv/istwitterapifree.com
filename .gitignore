@@ -1,6 +1,5 @@
-public/*
-!public/.gitkeep
-!public/*.png
+public/*.html
+public/*.xml
 
 ### Node ###
 # Logs

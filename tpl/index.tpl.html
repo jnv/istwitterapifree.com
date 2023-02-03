@@ -7,50 +7,7 @@
     <meta name="description" content="${status}" />
     <meta property="og:image" content="/og.png" />
     <link rel="canonical" href="https://istwitterapifree.com/" />
-    <style>
-      html {
-        line-height: 1.15;
-        -webkit-text-size-adjust: 100%;
-      }
-      body {
-        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-          "Apple Color Emoji", "Segoe UI Emoji";
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 90vh;
-        place-items: center;
-      }
-      a {
-        color: rgb(29, 155, 240);
-      }
-      main {
-        text-align: center;
-      }
-      h1,
-      .status {
-        font-size: 3rem;
-      }
-      h1 {
-        font-weight: normal;
-      }
-      .status {
-        font-weight: bold;
-      }
-      .response {
-        text-align: left;
-        margin: 0 auto;
-        max-width: 98vw;
-        overflow-y: scroll;
-      }
-      .links {
-        padding: 0;
-        list-style: none;
-        padding-top: 3rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
@@ -62,19 +19,14 @@
         As of <time datetime="${generatedDatetime}">${generatedHuman}</time>
       </p>
 
-      <details>
-        <summary>API response</summary>
-        <pre class="response"><code>${response}</code></pre>
-      </details>
+      <p>
+        <a href="https://twitter.com/TwitterDev/status/1621026986784337922"
+          >But not for long</a
+        >
+      </p>
 
       <footer>
         <ul class="links">
-          <li>
-            <a href="https://archive.is/D2TKY">Why?</a>
-            (<a href="https://twitter.com/TwitterDev/status/1621026986784337922"
-              >original</a
-            >)
-          </li>
           <!-- <li><a href="/feed.xml">RSS feed</a></li> -->
           <!-- <li><a href="">Follow on Mastodon</a></li> -->
           <li>
