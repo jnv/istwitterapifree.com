@@ -17,7 +17,12 @@ function escapeHTML(s) {
   };
   return s.replace(/[&"'<>]/g, (c) => lookup[c]);
 }
-async function generateFile(templateFilename, outputFilename, values = {}) {
+async function generateFile(
+  templateFilename,
+  outputFilename,
+  values = {},
+  escape = true
+) {
   const templatePath = new URL(templateFilename, TPL_DIR);
   const outputPath = new URL(outputFilename, OUT_DIR);
 
@@ -25,7 +30,11 @@ async function generateFile(templateFilename, outputFilename, values = {}) {
   let contents = template;
   for (const [key, value] of Object.entries(values)) {
     const re = new RegExp("\\${" + key + "}", "g");
-    contents = contents.replace(re, escapeHTML("" + value));
+    let passedValue = "" + value;
+    if (escape) {
+      passedValue = escapeHTML(passedValue);
+    }
+    contents = contents.replace(re, passedValue);
   }
   await writeFile(outputPath, contents, { encoding: "utf-8" });
 }
@@ -61,17 +70,15 @@ async function getTemplateData() {
   const { ok, response } = await getApiResponse();
   const now = new Date();
   const tplData = {
+    ...config.getStatusStrings({ ok, now }),
     ok,
-    statusShort: ok
-      ? config.status.positive.short
-      : config.status.negative.short,
-    statusLong: ok ? config.status.positive.long : config.status.negative.long,
     generatedHuman: now.toLocaleString("en-GB", {
       timeZone: "UTC",
       dateStyle: "long",
       timeStyle: "long",
     }),
     generatedDatetime: now.toISOString(),
+    generatedDate: now.toLocaleDateString("en-ca"),
     response: formatResponse(response),
   };
   return tplData;
@@ -79,7 +86,7 @@ async function getTemplateData() {
 
 // console.log({ TPL_DIR, OUT_DIR, INDEX_OUT, INDEX_TEMPLATE });
 const tplData = await getTemplateData();
-await generateFile("index.tpl.html", "index.html", tplData);
+await generateFile("index.tpl.html", "index.html", tplData, false);
 await generateFile("feed.tpl.xml", "feed.xml", tplData);
 
 console.error(tplData);

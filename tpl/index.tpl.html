@@ -27,14 +27,16 @@
           <h1>Is Twitter API Free?</h1>
         </header>
         <p class="status">${statusShort}</p>
-        <p class="date">
-          As of <time datetime="${generatedDatetime}">${generatedHuman}</time>
-        </p>
+
+        <p>${explanation}</p>
 
         <p>
-          <a href="https://twitter.com/TwitterDev/status/1621026986784337922"
-            >But not for long</a
-          >
+          <small>
+            But maybe you can use it for posting if
+            <a href="https://twitter.com/elonmusk/status/1622082025166442505"
+              >Elon likes you</a
+            >.
+          </small>
         </p>
       </main>
 
@@ -56,6 +58,10 @@
             <a href="https://github.com/jnv/istwitterapifree.com">Source</a>
           </li>
         </ul>
+        <p>
+          Generated on
+          <time datetime="${generatedDatetime}">${generatedHuman}</time>
+        </p>
       </footer>
     </div>
     <script
