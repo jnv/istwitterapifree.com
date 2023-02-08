@@ -22,12 +22,12 @@ jobs:
           key: feed-cache-${{ steps.generate-key.outputs.cache-key }}
           restore-keys: feed-cache-
       - name: GitHub
-        uses: 'joschi/mastofeedbot@v0.1.3'
+        uses: "joschi/mastofeedbot@v0.1.3"
         with:
           # This is the RSS feed you want to publish
           rss-feed: https://istwitterapifree.com/feed.xml
           # Template of status posted to Mastodon (Handlebars)
-          template: '{{item.title}}. {{item.description}}'
+          template: "{{item.description}}"
           # Visibility of the posted status (public | unlisted | private | direct)
           status-visibility: unlisted
           # Mark Mastodon status as sensitive content
