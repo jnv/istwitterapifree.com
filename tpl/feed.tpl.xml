@@ -8,12 +8,10 @@
 
   <entry>
     <title>${statusShort}</title>
-    <id>https://istwitterapifree.com/?d=${generatedDate}</id>
+    <id>${entryLink}</id>
     <updated>${generatedDatetime}</updated>
-    <link href="https://istwitterapifree.com/?d=${generatedDate}"/>
-    <summary type="html">
-      &lt;p&gt;${explanation}&lt;/p&gt;
-    </summary>
+    <link href="${entryLink}"/>
+    <summary type="html">&lt;p&gt;${statusLong} ${explanation}&lt;/p&gt;</summary>
   </entry>
 
 </feed>

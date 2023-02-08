@@ -29,7 +29,7 @@ export default {
     if (diffMs <= 0) {
       if (ok) {
         return {
-          statusShort: "Yes?",
+          statusShort: "Yes",
           statusLong: "Yes, Twitter API seems to be still available for free.",
           explanation: `<a href="https://twitter.com/TwitterDev/status/1621026986784337922">The deadline was ${daysRelative}</a>.`,
         };

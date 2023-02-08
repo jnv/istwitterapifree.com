@@ -17,6 +17,11 @@ function escapeHTML(s) {
   };
   return s.replace(/[&"'<>]/g, (c) => lookup[c]);
 }
+
+function toISODate(date) {
+  return date.toISOString().split("T")[0];
+}
+
 async function generateFile(
   templateFilename,
   outputFilename,
@@ -69,6 +74,7 @@ ${body}`;
 async function getTemplateData() {
   const { ok, response } = await getApiResponse();
   const now = new Date();
+  const generatedDate = toISODate(now);
   const tplData = {
     ...config.getStatusStrings({ ok, now }),
     ok,
@@ -78,8 +84,9 @@ async function getTemplateData() {
       timeStyle: "long",
     }),
     generatedDatetime: now.toISOString(),
-    generatedDate: now.toLocaleDateString("en-ca"),
+    generatedDate,
     response: formatResponse(response),
+    entryLink: `https://istwitterapifree.com/?s=${generatedDate}_${ok}`,
   };
   return tplData;
 }
