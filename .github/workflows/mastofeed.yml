@@ -29,7 +29,7 @@ jobs:
           # Template of status posted to Mastodon (Handlebars)
           template: "{{item.description}}"
           # Visibility of the posted status (public | unlisted | private | direct)
-          status-visibility: unlisted
+          status-visibility: public
           # Mark Mastodon status as sensitive content
           sensitive: false
           # This is your instance address
