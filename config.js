@@ -1,9 +1,9 @@
-const finalDate = new Date(1675929600 * 1000); // Feb 9 midnight PST
+const finalDate = new Date(1676246400 * 1000); // Feb 13 midnight UTC
 
 export default {
   bearerToken: process.env.TWITTER_BEARER_TOKEN,
   // tweetId: "20",
-  tweetId: process.env.TWEET_ID || "1621026986784337922",
+  tweetId: process.env.TWEET_ID || "1623467615539859456",
   status: {
     positive: {
       short: "Yes",
@@ -31,7 +31,7 @@ export default {
         return {
           statusShort: "Yes",
           statusLong: "Yes, Twitter API seems to be still available for free.",
-          explanation: `<a href="https://twitter.com/TwitterDev/status/1621026986784337922">The deadline was ${daysRelative}</a>.`,
+          explanation: `<a href="https://twitter.com/TwitterDev/status/1623467615539859456">The extendes deadline was ${daysRelative}</a>.`,
         };
       } else {
         return {
@@ -47,14 +47,14 @@ export default {
       return {
         statusShort: "Yes",
         statusLong: "Yes, Twitter API is free.",
-        explanation: `Not for long. <a href="https://twitter.com/TwitterDev/status/1621026986784337922">The deadline is ${daysRelative}</a>.`,
+        explanation: `<a href="https://twitter.com/TwitterDev/status/1623467615539859456">The extended deadline is ${daysRelative}</a>.`,
       };
     } else {
       return {
         statusShort: "Probably",
         statusLong:
           "Twitter API should still be free, but something's happening",
-        explanation: `<a href="https://twitter.com/TwitterDev/status/1621026986784337922">The deadline is ${daysRelative}</a>.`,
+        explanation: `<a href="https://twitter.com/TwitterDev/status/1623467615539859456">The extended deadline is ${daysRelative}</a>.`,
       };
     }
   },
