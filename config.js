@@ -31,7 +31,7 @@ export default {
         return {
           statusShort: "Yes",
           statusLong: "Yes, Twitter API seems to be still available for free.",
-          explanation: `<a href="https://twitter.com/TwitterDev/status/1623467615539859456">The extendes deadline was ${daysRelative}</a>.`,
+          explanation: `<a href="https://twitter.com/TwitterDev/status/1623467615539859456">The extended deadline was ${daysRelative}</a>.`,
         };
       } else {
         return {
