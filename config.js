@@ -26,7 +26,7 @@ export default {
     });
     const daysRelative = rtf.format(diffDays, "days");
 
-    if (diffMs <= 0) {
+    if (diffDays < 0) {
       if (ok) {
         return {
           statusShort: "Yes",
