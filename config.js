@@ -1,4 +1,4 @@
-const finalDate = new Date(1676246400 * 1000); // Feb 13 midnight UTC
+const finalDate = new Date(1676317415 * 1000); // Feb 13 20:43 UTC
 
 export default {
   bearerToken: process.env.TWITTER_BEARER_TOKEN,
@@ -30,8 +30,8 @@ export default {
       if (ok) {
         return {
           statusShort: "Yes",
-          statusLong: "Yes, Twitter API seems to be still available for free.",
-          explanation: `<a href="https://twitter.com/TwitterDev/status/1623467615539859456">The extended deadline was ${daysRelative}</a>.`,
+          statusLong: "Yes, Twitter API is still available for free.",
+          explanation: `More information “<a href="https://twitter.com/TwitterDev/status/1623467615539859456">in a few days</a>” (since ${daysRelative}).`,
         };
       } else {
         return {
