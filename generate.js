@@ -86,7 +86,7 @@ async function getTemplateData() {
     generatedDatetime: now.toISOString(),
     generatedDate,
     response: formatResponse(response),
-    entryLink: `https://istwitterapifree.com/?s=${generatedDate}_${ok}`,
+    entryLink: `https://istwitterapifree.com/?s=${generatedDate}x_${ok}`,
   };
   return tplData;
 }
