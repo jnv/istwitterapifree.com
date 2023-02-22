@@ -33,13 +33,13 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: "18.4.0
           cache: "npm"
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - run: npm ci
       - run: npm run build
-        continue-on-error: true
+        continue-on-error: false
         env:
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
       - name: Upload artifact
