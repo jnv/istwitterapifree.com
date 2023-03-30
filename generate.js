@@ -1,7 +1,8 @@
 import { readFile, writeFile } from "node:fs/promises";
 import config from "./config.js";
 import { getTweet } from "./twitterApi.js";
-import process from "node:process";
+// import process from "node:process";
+import { toISODate } from "./utils.js";
 
 const TPL_DIR = new URL("./tpl/", import.meta.url).toString();
 const OUT_DIR = new URL("./public/", import.meta.url).toString();
@@ -16,10 +17,6 @@ function escapeHTML(s) {
     ">": "&gt;",
   };
   return s.replace(/[&"'<>]/g, (c) => lookup[c]);
-}
-
-function toISODate(date) {
-  return date.toISOString().split("T")[0];
 }
 
 async function generateFile(
@@ -86,7 +83,7 @@ async function getTemplateData() {
     generatedDatetime: now.toISOString(),
     generatedDate,
     response: formatResponse(response),
-    entryLink: `https://istwitterapifree.com/?s=${generatedDate}x_${ok}`,
+    entryLink: config.getEntryLink({ ok, now }),
   };
   return tplData;
 }
@@ -97,6 +94,6 @@ await generateFile("index.tpl.html", "index.html", tplData, false);
 await generateFile("feed.tpl.xml", "feed.xml", tplData);
 
 console.error(tplData);
-if (!tplData.ok) {
-  process.exitCode = 1;
-}
+// if (!tplData.ok) {
+//   process.exitCode = 1;
+// }

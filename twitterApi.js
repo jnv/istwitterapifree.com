@@ -38,6 +38,8 @@ async function twitterApiCall(path) {
 }
 
 export async function getTweet(tweetId) {
-  const res = await twitterApiCall(`/2/tweets/${tweetId}`);
+  const res = await twitterApiCall(
+    `/2/tweets/${tweetId}?tweet.fields=created_at`
+  );
   return res;
 }
