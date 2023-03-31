@@ -6,16 +6,21 @@ const finalDate = new Date(startDate.getTime() + 1000 * 60 * 60 * 24 * 30); // 3
 
 const explanationLink = `https://twitter.com/TwitterDev/status/${tweetId}`;
 
+function getDaysDiff(start, end) {
+  const diff = end.getTime() - start.getTime();
+  return Math.round(diff / (1000 * 3600 * 24));
+}
+
 export default {
   bearerToken: process.env.TWITTER_BEARER_TOKEN,
   tweetId: process.env.TWEET_ID || tweetId,
   getEntryLink({ ok, now }) {
-    return `https://istwitterapifree.com/?s=${toISODate(now)}_${tweetId}_${ok}`;
+    const daysSince = getDaysDiff(startDate, now);
+    return `https://istwitterapifree.com/?s=${daysSince}_${tweetId}_${ok}`;
   },
   getStatusStrings({ now, ok }) {
     const diffMs = finalDate.getTime() - now.getTime();
-    const diffDays = Math.round(diffMs / (1000 * 3600 * 24));
-    // const diffHours = diffMs / (1000 * 3600);
+    const diffDays = getDaysDiff(now, finalDate);
 
     const rtf = new Intl.RelativeTimeFormat("en", {
       localeMatcher: "best fit", // other values: "lookup"
@@ -24,17 +29,19 @@ export default {
     });
     const daysRelative = rtf.format(diffDays, "days");
     if (ok) {
-      if (diffMs > 0) {
+      if (diffDays >= 0) {
+        const overNext =
+          diffDays === 0 ? "today" : `over the next ${diffDays} days`;
         return {
           statusShort: "Yes",
           statusLong: "Yes, Twitter API is still available for free.",
-          explanation: `Current free access tiers <a href="${explanationLink}">will be deprecated</a> ${daysRelative}.`,
+          explanation: `Current free access tiers <a href="${explanationLink}">will be deprecated ${overNext}</a>.`,
         };
       } else {
         return {
           statusShort: "Yes",
           statusLong: "Yes, Twitter API is still available for free.",
-          explanation: `Current free access tiers <a href="${explanationLink}">were supposed to be deprecated</a> ${daysRelative}.`,
+          explanation: `Current free access tiers <a href="${explanationLink}">were supposed to be deprecated ${daysRelative}</a>.`,
         };
       }
     } else {
@@ -43,7 +50,7 @@ export default {
         return {
           statusShort: "Probably",
           statusLong: "Maybe? Twitter API responds with error.",
-          explanation: `Likely it's down, or the <a href="${explanationLink}">free access tiers were deprecated sooner</a> than ${daysRelative}.`,
+          explanation: `Likely it's down, or the <a href="${explanationLink}">free access tiers were already deprecated</a>.`,
         };
       } else {
         return {
