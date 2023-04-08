@@ -11,6 +11,12 @@ function getDaysDiff(start, end) {
   return Math.round(diff / (1000 * 3600 * 24));
 }
 
+const addtlDetails = {
+  11: "But to be clear, Twitter appreciates your investment in their platform and hopes to continue your relationship with them. (source: <a href='https://twittercommunity.com/t/reminder-to-migrate-to-the-new-free-basic-or-enterprise-plans-of-the-twitter-api/189737'>https://twittercommunity.com/t/reminder-to-migrate-to-the-new-free-basic-or-enterprise-plans-of-the-twitter-api/189737</a>).",
+  12: "Technically, there'll still be a free access tier for useful bots like me.",
+  15: "#APIcalypse is coming…",
+};
+
 export default {
   bearerToken: process.env.TWITTER_BEARER_TOKEN,
   tweetId: process.env.TWEET_ID || tweetId,
@@ -21,6 +27,7 @@ export default {
   getStatusStrings({ now, ok }) {
     const diffMs = finalDate.getTime() - now.getTime();
     const diffDays = getDaysDiff(now, finalDate);
+    const daysSince = getDaysDiff(startDate, now);
 
     const rtf = new Intl.RelativeTimeFormat("en", {
       localeMatcher: "best fit", // other values: "lookup"
@@ -36,6 +43,7 @@ export default {
           statusShort: "Yes",
           statusLong: "Yes, Twitter API is still available for free.",
           explanation: `Current free access tiers <a href="${explanationLink}">will be deprecated ${overNext}</a>.`,
+          addtlRss: addtlDetails[daysSince] ?? "",
         };
       } else {
         return {

@@ -11,7 +11,7 @@
     <id>${entryLink}</id>
     <updated>${generatedDatetime}</updated>
     <link href="${entryLink}"/>
-    <summary type="html">&lt;p&gt;${statusLong} ${explanation}&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;${statusLong} ${explanation} ${addtlRss}&lt;/p&gt;</summary>
   </entry>
 
 </feed>
