@@ -94,6 +94,6 @@ await generateFile("index.tpl.html", "index.html", tplData, false);
 await generateFile("feed.tpl.xml", "feed.xml", tplData);
 
 console.error(tplData);
-// if (!tplData.ok) {
-//   process.exitCode = 1;
-// }
+if (!tplData.ok) {
+  process.exitCode = 1;
+}
