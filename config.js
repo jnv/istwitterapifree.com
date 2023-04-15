@@ -15,7 +15,7 @@ const addtlDetails = {
   11: "But to be clear, Twitter appreciates your investment in their platform and hopes to continue your relationship with them. (source: <a href='https://twittercommunity.com/t/reminder-to-migrate-to-the-new-free-basic-or-enterprise-plans-of-the-twitter-api/189737'>https://twittercommunity.com/t/reminder-to-migrate-to-the-new-free-basic-or-enterprise-plans-of-the-twitter-api/189737</a>).",
   12: "Technically, there'll still be a free access tier for useful bots like me.",
   15: "#APIcalypse is coming…",
-  17: "Was your app already forced to be “upgraded”?",
+  17: "Have you “upgraded” already?",
 };
 
 export default {
@@ -44,7 +44,7 @@ export default {
           statusShort: "Technically yes",
           statusLong:
             "Technically yes.",
-          explanation: `Legacy access seems to work, but your app can be suspended at any time. Current free access tiers <a href="${explanationLink}">will be deprecated ${overNext}</a>.`,
+          explanation: `Legacy access still works for some apps. These <a href="${explanationLink}">will be forced to migrate ${overNext}</a>.`,
           addtlRss: addtlDetails[daysSince] ?? "",
         };
       } else {
