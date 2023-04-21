@@ -16,6 +16,7 @@ const addtlDetails = {
   12: "Technically, there'll still be a free access tier for useful bots like me.",
   15: "#APIcalypse is coming…",
   17: "Have you “upgraded” already?",
+  23: `Premium API has been deprecated. <a href="https://twitter.com/TwitterDev/status/1649191520250245121">https://twitter.com/TwitterDev/status/1649191520250245121</a>`,
 };
 
 export default {
@@ -42,15 +43,14 @@ export default {
           diffDays === 0 ? "today" : `over the next ${diffDays} days`;
         return {
           statusShort: "Technically yes",
-          statusLong:
-            "Technically yes.",
+          statusLong: "Technically yes.",
           explanation: `Legacy access still works for some apps. These <a href="${explanationLink}">will be forced to migrate ${overNext}</a>.`,
           addtlRss: addtlDetails[daysSince] ?? "",
         };
       } else {
         return {
           statusShort: "Yes, still",
-          statusLong: "Yes. Legacy access to Twitter API still seems to work.",
+          statusLong: "Legacy access to Twitter API still seems to work.",
           explanation: `Current free access tiers <a href="${explanationLink}">were supposed to be deprecated ${daysRelative}</a>. #WorksForMe`,
         };
       }
@@ -58,7 +58,7 @@ export default {
       // not ok
       if (diffMs > 0) {
         return {
-          statusShort: "Probably",
+          statusShort: "No?",
           statusLong: "Maybe? Twitter API responds with error.",
           explanation: `Likely it's down, or the <a href="${explanationLink}">free access tiers were already deprecated</a>.`,
         };
