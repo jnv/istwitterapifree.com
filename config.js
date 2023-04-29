@@ -52,6 +52,7 @@ export default {
           statusShort: "Yes, still",
           statusLong: "Legacy access to Twitter API still seems to work.",
           explanation: `Current free access tiers <a href="${explanationLink}">were supposed to be deprecated ${daysRelative}</a>. #WorksForMe`,
+          addtlRss: "", 
         };
       }
     } else {
@@ -61,6 +62,7 @@ export default {
           statusShort: "No?",
           statusLong: "Maybe? Twitter API responds with error.",
           explanation: `Likely it's down, or the <a href="${explanationLink}">free access tiers were already deprecated</a>.`,
+          addtlRss: "", 
         };
       } else {
         return {
@@ -68,6 +70,7 @@ export default {
           statusLong:
             "No, Twitter API isn't available for free anymore (except for limited posting).",
           explanation: `Time to <a href="https://developer.twitter.com/en">pay up</a>. Or just move somewhere else.`,
+          addtlRss: "", 
         };
       }
     }
