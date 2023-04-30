@@ -17,6 +17,7 @@ const addtlDetails = {
   15: "#APIcalypse is coming…",
   17: "Have you “upgraded” already?",
   23: `Premium API has been deprecated. <a href="https://twitter.com/TwitterDev/status/1649191520250245121">https://twitter.com/TwitterDev/status/1649191520250245121</a>`,
+  31: "#WorksForMe",
 };
 
 export default {
@@ -52,7 +53,7 @@ export default {
           statusShort: "Yes?",
           statusLong: "Yes? Deprecated Essential access works for this app.",
           explanation: `Previous free access tiers <a href="${explanationLink}">were deprecated ${daysRelative}</a>.`,
-          addtlRss: "", 
+          addtlRss: addtlDetails[daysSince] ?? "",
         };
       }
     } else {
