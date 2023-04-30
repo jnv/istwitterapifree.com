@@ -49,9 +49,9 @@ export default {
         };
       } else {
         return {
-          statusShort: "Yes, still",
-          statusLong: "Legacy access to Twitter API still seems to work.",
-          explanation: `Current free access tiers <a href="${explanationLink}">were supposed to be deprecated ${daysRelative}</a>. #WorksForMe`,
+          statusShort: "Yes?",
+          statusLong: "Yes? Deprecated Essential access works for this app.",
+          explanation: `Previous free access tiers <a href="${explanationLink}">were deprecated ${daysRelative}</a>.`,
           addtlRss: "", 
         };
       }
