@@ -50,9 +50,9 @@ export default {
         };
       } else {
         return {
-          statusShort: "Yes?",
-          statusLong: "Yes? Deprecated Essential access works for this app.",
-          explanation: `Previous free access tiers <a href="${explanationLink}">were deprecated ${daysRelative}</a>.`,
+          statusShort: "Yes, still?",
+          statusLong: "Yes, still?",
+          explanation: `Previous free access tiers <a href="${explanationLink}">were deprecated ${daysRelative}</a>. However, discontinued Essential access still works for this app.`,
           addtlRss: addtlDetails[daysSince] ?? "",
         };
       }
