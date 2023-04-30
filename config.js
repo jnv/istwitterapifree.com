@@ -2,7 +2,7 @@ import { toISODate } from "./utils.js";
 
 const tweetId = "1641222786894135296";
 const startDate = new Date("2023-03-29T23:36:18.000Z"); // created_at of the tweet
-const finalDate = new Date(startDate.getTime() + 1000 * 60 * 60 * 24 * 31); // 30 days
+const finalDate = new Date(startDate.getTime() + 1000 * 60 * 60 * 24 * 30); // 30 days
 
 const explanationLink = `https://twitter.com/TwitterDev/status/${tweetId}`;
 
