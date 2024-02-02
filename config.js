@@ -25,7 +25,7 @@ export default {
   tweetId: process.env.TWEET_ID || tweetId,
   getEntryLink({ ok, now }) {
     const daysSince = getDaysDiff(startDate, now);
-    return `https://istwitterapifree.com/?s=${daysSince}_${tweetId}_${ok}`;
+    return `https://jnv.github.io/istwitterapifree.com/?s=${daysSince}_${tweetId}_${ok}`;
   },
   getStatusStrings({ now, ok }) {
     const diffMs = finalDate.getTime() - now.getTime();
@@ -63,7 +63,7 @@ export default {
           statusShort: "No?",
           statusLong: "Maybe? Twitter API responds with error.",
           explanation: `Likely it's down, or the <a href="${explanationLink}">free access tiers were already deprecated</a>.`,
-          addtlRss: "", 
+          addtlRss: "",
         };
       } else {
         return {
@@ -71,7 +71,7 @@ export default {
           statusLong:
             "No, Twitter API isn't available for free anymore (except for limited posting).",
           explanation: `Time to <a href="https://developer.twitter.com/en">pay up</a>. Or just move somewhere else.`,
-          addtlRss: "", 
+          addtlRss: "",
         };
       }
     }

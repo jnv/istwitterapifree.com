@@ -3,8 +3,8 @@
   <title>Is Twitter API Free?</title>
   <updated>${generatedDatetime}</updated>
   <id>https://istwitterapifree.com/</id>
-  <link rel="self" href="https://istwitterapifree.com/feed.xml"/>
-  <link href="https://istwitterapifree.com/"/>
+  <link rel="self" href="https://jnv.github.io/istwitterapifree.com/feed.xml"/>
+  <link href="https://jnv.github.io/istwitterapifree.com/"/>
 
   <entry>
     <title>${statusShort}</title>
